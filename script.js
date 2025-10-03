@@ -14,7 +14,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
         );
         return;
     }
-    
+
     if (email === "") {
         showModal(
             "Email Tidak Boleh Kosong",
@@ -71,7 +71,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
 
 
     showModal(
-        "✅ Pendaftaran Berhasil",
+        "Pendaftaran Berhasil",
         "Akun Anda berhasil didaftarkan!",
         "success"
     );
@@ -105,4 +105,16 @@ window.addEventListener("click", (e) => {
     if (e.target === modal) {
         modal.classList.remove("show");
     }
+
 });
+
+function togglePassword(inputId, el) {
+    const input = document.getElementById(inputId);
+    if (input.type === "password") {
+        input.type = "text";
+        el.textContent = "🙈"; 
+    } else {
+        input.type = "password";
+        el.textContent = "👁️"; 
+    }
+}
