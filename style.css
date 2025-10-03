@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url('assets/bg.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(171, 171, 171, 0.636);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.container {
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+/* 🪩 Card Form elegan */
+.card {
+  background: rgba(255, 255, 255, 0.173);
+  backdrop-filter: blur(10px);
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1e293b;
+  font-size: 26px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+/* ✏️ Input field modern */
+.input-wrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1.5px solid #869bb5;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #dddddd;
+}
+
+input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-1px);
+}
+
+/* 📱 Responsif */
+@media (max-width: 480px) {
+  .card {
+    padding: 25px;
+  }
+}
+
+/* 💡 Modal Styles (tidak berubah banyak) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal.show {
+  display: flex;
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.97);
+  padding: 35px 30px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.45s ease-out;
+  font-family: "Poppins", sans-serif;
+}
+.modal-icon {
+  font-size: 70px;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: pop 0.5s ease-in-out;
+}
+
+.modal-icon.success {
+  color: #22c55e; /* hijau elegan */
+}
+
+.modal-icon.error {
+  color: #ef4444; /* merah elegan */
+}
+
+/* 📝 Judul & Pesan */
+.modal-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.modal-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 25px;
+}
+
+#closeModal {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+
+#closeModal:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.5);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+}
