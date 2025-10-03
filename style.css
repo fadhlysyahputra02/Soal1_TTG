@@ -112,6 +112,13 @@ input:focus {
   opacity: 1;
 }
 
+.modal-icon img.modal-image {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  animation: pop 0.4s ease-in-out;
+}
 
 button {
   width: 100%;

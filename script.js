@@ -87,14 +87,13 @@ function showModal(title, message, type) {
 
     modalTitle.textContent = title;
     modalMessage.textContent = message;
-
-    // Reset icon
     modalIcon.className = "modal-icon";
-    modalIcon.innerHTML = type === "error" ? "❌" : "✅";
-    modalIcon.classList.add(type === "error" ? "error" : "success");
+    const iconPath = type === "error" ? "assets/error.png" : "assets/sukses.png";
+    modalIcon.innerHTML = `<img src="${iconPath}" alt="${type}" class="modal-image" />`;
 
     modal.classList.add("show");
 }
+
 
 document.getElementById("closeModal").addEventListener("click", () => {
     document.getElementById("modal").classList.remove("show");
@@ -112,9 +111,9 @@ function togglePassword(inputId, el) {
     const input = document.getElementById(inputId);
     if (input.type === "password") {
         input.type = "text";
-        el.textContent = "🙈"; 
+        el.textContent = "🙈";
     } else {
         input.type = "password";
-        el.textContent = "👁️"; 
+        el.textContent = "👁️";
     }
 }
